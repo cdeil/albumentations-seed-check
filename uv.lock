@@ -2,28 +2,14 @@ version = 1
 revision = 5
 requires-python = ">=3.11"
 resolution-markers = [
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'linux' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'linux' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
+    "python_full_version >= '3.12' and sys_platform == 'win32'",
+    "python_full_version >= '3.12' and sys_platform == 'linux'",
+    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'",
+    "python_full_version >= '3.12' and sys_platform == 'darwin'",
+    "python_full_version < '3.12' and sys_platform == 'win32'",
+    "python_full_version < '3.12' and sys_platform == 'linux'",
+    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'",
+    "python_full_version < '3.12' and sys_platform == 'darwin'",
 ]
 conflicts = [[
     { package = "albumentations-seed-check", group = "current" },
@@ -115,6 +101,8 @@ current = [
 integration = [
     { name = "rfdetr" },
     { name = "supervision" },
+    { name = "torchvision", version = "0.29.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "torchvision", version = "0.29.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
     { name = "ultralytics" },
 ]
 legacy = [
@@ -140,6 +128,8 @@ current = [
 integration = [
     { name = "rfdetr", specifier = "==1.11.2" },
     { name = "supervision", specifier = "==0.30.8" },
+    { name = "torchvision", marker = "sys_platform != 'linux'", specifier = "==0.29.0" },
+    { name = "torchvision", marker = "sys_platform == 'linux'", specifier = "==0.29.0", index = "https://download.pytorch.org/whl/cpu" },
     { name = "ultralytics", specifier = "==8.4.174" },
 ]
 legacy = [
@@ -206,17 +196,10 @@ name = "av"
 version = "18.1.0"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'linux' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
+    "python_full_version < '3.12' and sys_platform == 'win32'",
+    "python_full_version < '3.12' and sys_platform == 'linux'",
+    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'",
+    "python_full_version < '3.12' and sys_platform == 'darwin'",
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/8d/f4/f22114d30d3435e38c6af2b4870f37b864403dca6ae7af747a289ce0a18e/av-18.1.0.tar.gz", hash = "sha256:47bfc286e1bc9de7ab4681fc2b575cd2460a66919d31ffe1bd5aa54fae531a28", size = 4451061, upload-time = "2026-08-12T22:28:18.761Z" }
 wheels = [
@@ -245,17 +228,10 @@ name = "av"
 version = "19.0.1"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'linux' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
+    "python_full_version >= '3.12' and sys_platform == 'win32'",
+    "python_full_version >= '3.12' and sys_platform == 'linux'",
+    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'",
+    "python_full_version >= '3.12' and sys_platform == 'darwin'",
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/90/bc/a2a40e503250fe5d4174471911828f31658864eb69a8a7cb960c715e17b7/av-19.0.1.tar.gz", hash = "sha256:08674930eaf1af78a3ed8f93d3ba49383323b3a867e84349d9c399e36f7497da", size = 4274648, upload-time = "2026-10-03T01:48:28.575Z" }
 wheels = [
@@ -458,17 +434,10 @@ name = "contourpy"
 version = "1.3.3"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'linux' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
+    "python_full_version < '3.12' and sys_platform == 'win32'",
+    "python_full_version < '3.12' and sys_platform == 'linux'",
+    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'",
+    "python_full_version < '3.12' and sys_platform == 'darwin'",
 ]
 dependencies = [
     { name = "numpy", marker = "python_full_version < '3.12' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
@@ -553,17 +522,10 @@ name = "contourpy"
 version = "1.4.0"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'linux' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
+    "python_full_version >= '3.12' and sys_platform == 'win32'",
+    "python_full_version >= '3.12' and sys_platform == 'linux'",
+    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'",
+    "python_full_version >= '3.12' and sys_platform == 'darwin'",
 ]
 dependencies = [
     { name = "numpy", marker = "python_full_version >= '3.12' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
@@ -1257,17 +1219,10 @@ name = "networkx"
 version = "3.6.1"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'linux' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
+    "python_full_version < '3.12' and sys_platform == 'win32'",
+    "python_full_version < '3.12' and sys_platform == 'linux'",
+    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'",
+    "python_full_version < '3.12' and sys_platform == 'darwin'",
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/6a/51/63fe664f3908c97be9d2e4f1158eb633317598cfa6e1fc14af5383f17512/networkx-3.6.1.tar.gz", hash = "sha256:26b7c357accc0c8cde558ad486283728b65b6a95d85ee1cd66bafab4c8168509", size = 2517025, upload-time = "2025-12-08T17:02:39.908Z" }
 wheels = [
@@ -1279,17 +1234,10 @@ name = "networkx"
 version = "3.7"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'linux' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
+    "python_full_version >= '3.12' and sys_platform == 'win32'",
+    "python_full_version >= '3.12' and sys_platform == 'linux'",
+    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'",
+    "python_full_version >= '3.12' and sys_platform == 'darwin'",
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/dc/76/3af777226b63a5e64a6b36b1ec5855c14e2b94a37096d4760e595fc43511/networkx-3.7.tar.gz", hash = "sha256:fd77a511bd90f39f3d016351345b52cf5319b813bdca01de3f755d3cca62e96a", size = 1866482, upload-time = "2026-09-21T16:45:16.974Z" }
 wheels = [
@@ -2018,9 +1966,10 @@ dependencies = [
     { name = "pydeprecate" },
     { name = "requests" },
     { name = "supervision" },
-    { name = "torch", version = "2.14.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform == 'darwin' or sys_platform == 'win32' or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current') or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "torch", version = "2.14.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux' or (sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "torchvision" },
+    { name = "torch", version = "2.14.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "torch", version = "2.14.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "torchvision", version = "0.29.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "torchvision", version = "0.29.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
     { name = "tqdm" },
     { name = "transformers" },
 ]
@@ -2071,17 +2020,10 @@ name = "scipy"
 version = "1.17.1"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'linux' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
+    "python_full_version < '3.12' and sys_platform == 'win32'",
+    "python_full_version < '3.12' and sys_platform == 'linux'",
+    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'",
+    "python_full_version < '3.12' and sys_platform == 'darwin'",
 ]
 dependencies = [
     { name = "numpy", marker = "python_full_version < '3.12' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
@@ -2155,17 +2097,10 @@ name = "scipy"
 version = "1.18.1"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'linux' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'darwin' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
+    "python_full_version >= '3.12' and sys_platform == 'win32'",
+    "python_full_version >= '3.12' and sys_platform == 'linux'",
+    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'",
+    "python_full_version >= '3.12' and sys_platform == 'darwin'",
 ]
 dependencies = [
     { name = "numpy", marker = "python_full_version >= '3.12' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
@@ -2500,14 +2435,14 @@ resolution-markers = [
     "python_full_version < '3.12' and sys_platform == 'darwin'",
 ]
 dependencies = [
-    { name = "filelock", marker = "sys_platform == 'darwin' or sys_platform == 'win32' or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current') or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "fsspec", marker = "sys_platform == 'darwin' or sys_platform == 'win32' or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current') or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "jinja2", marker = "sys_platform == 'darwin' or sys_platform == 'win32' or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current') or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "networkx", version = "3.6.1", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version < '3.12' and sys_platform == 'darwin') or (python_full_version < '3.12' and sys_platform == 'win32') or (python_full_version < '3.12' and sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current') or (python_full_version < '3.12' and sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-legacy') or (python_full_version >= '3.12' and extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy') or (sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "networkx", version = "3.7", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.12' and sys_platform == 'darwin') or (python_full_version >= '3.12' and sys_platform == 'win32') or (python_full_version >= '3.12' and sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current') or (python_full_version >= '3.12' and sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-legacy') or (python_full_version < '3.12' and extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy') or (sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "setuptools", marker = "sys_platform == 'darwin' or sys_platform == 'win32' or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current') or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "sympy", marker = "sys_platform == 'darwin' or sys_platform == 'win32' or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current') or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "typing-extensions", marker = "sys_platform == 'darwin' or sys_platform == 'win32' or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current') or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "filelock", marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "fsspec", marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "jinja2", marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "networkx", version = "3.6.1", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version < '3.12' and sys_platform != 'linux') or (python_full_version >= '3.12' and extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy') or (sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "networkx", version = "3.7", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.12' and sys_platform != 'linux') or (python_full_version < '3.12' and extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy') or (sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "setuptools", marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "sympy", marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "typing-extensions", marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e6/2c/0c9757a1ea1fff8ccc4faff1d1c87e98a69542b5d4b606e50f7518f72e58/torch-2.14.0-cp311-cp311-macosx_14_0_arm64.whl", hash = "sha256:ae530ddd3f3b94248b77f1fd3313c4f3405bd0d17283d505b81574816767133a", size = 127277244, upload-time = "2026-09-02T13:42:57.855Z" },
@@ -2537,22 +2472,18 @@ name = "torch"
 version = "2.14.0+cpu"
 source = { registry = "https://download.pytorch.org/whl/cpu" }
 resolution-markers = [
-    "python_full_version >= '3.12' and sys_platform == 'linux' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'linux' and extra != 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform == 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
-    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy'",
+    "python_full_version >= '3.12' and sys_platform == 'linux'",
+    "python_full_version < '3.12' and sys_platform == 'linux'",
 ]
 dependencies = [
-    { name = "filelock", marker = "sys_platform == 'linux' or (sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "fsspec", marker = "sys_platform == 'linux' or (sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "jinja2", marker = "sys_platform == 'linux' or (sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "networkx", version = "3.6.1", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version < '3.12' and sys_platform == 'linux') or (python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "networkx", version = "3.7", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.12' and sys_platform == 'linux') or (python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "setuptools", marker = "sys_platform == 'linux' or (sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "sympy", marker = "sys_platform == 'linux' or (sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "typing-extensions", marker = "sys_platform == 'linux' or (sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "filelock", marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "fsspec", marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "jinja2", marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "networkx", version = "3.6.1", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version < '3.12' and sys_platform == 'linux') or (python_full_version >= '3.12' and extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy') or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "networkx", version = "3.7", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.12' and sys_platform == 'linux') or (python_full_version < '3.12' and extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy') or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "setuptools", marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "sympy", marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "typing-extensions", marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
 ]
 wheels = [
     { url = "https://download-r2.pytorch.org/whl/cpu/torch-2.14.0%2Bcpu-cp311-cp311-linux_s390x.whl", hash = "sha256:3fa39713d13f23563ad11636bfff76b677ab4addbc240c54e6b7e47622e8973d", upload-time = "2026-09-02T18:31:08Z" },
@@ -2588,35 +2519,79 @@ wheels = [
 
 [[package]]
 name = "torchvision"
-version = "0.29.1"
+version = "0.29.0"
 source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version >= '3.12' and sys_platform == 'win32'",
+    "python_full_version >= '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'",
+    "python_full_version >= '3.12' and sys_platform == 'darwin'",
+    "python_full_version < '3.12' and sys_platform == 'win32'",
+    "python_full_version < '3.12' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'",
+    "python_full_version < '3.12' and sys_platform == 'darwin'",
+]
 dependencies = [
-    { name = "numpy" },
-    { name = "pillow" },
-    { name = "torch", version = "2.14.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform == 'darwin' or sys_platform == 'win32' or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current') or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "torch", version = "2.14.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux' or (sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "numpy", marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "pillow", marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "torch", version = "2.14.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/70/e8/77dc735cfff38e0d8fc175bff582d2e3096c81d30c7d6afc022a0fa049bb/torchvision-0.29.1-cp311-cp311-macosx_14_0_arm64.whl", hash = "sha256:880c1c789fd9cdc31cdb4dbe906b8c74bd8b9b70509cc9fffe6b996ad0a0f656", size = 1813850, upload-time = "2026-09-30T17:57:02.087Z" },
-    { url = "https://files.pythonhosted.org/packages/76/e3/3891eb67abb39c164beeb0e69955f0ec80552a3c6ae499444bccfe95c0c2/torchvision-0.29.1-cp311-cp311-manylinux_2_28_aarch64.whl", hash = "sha256:4838f8989eaf85eb84602639f4354cdad9c38468b8b05b34b0e6e96945814e7c", size = 7586162, upload-time = "2026-09-30T17:57:05.953Z" },
-    { url = "https://files.pythonhosted.org/packages/17/58/df93d4bb1981f0be093192eb30efc8ae3cc8cf617b056b75f83d8750d212/torchvision-0.29.1-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:2cb678029a5dd45afbbfa662fce49736827d52be33242b5a8a731e0db02ccdf5", size = 7430666, upload-time = "2026-09-30T17:57:14.126Z" },
-    { url = "https://files.pythonhosted.org/packages/53/46/443f90d71a7506af4289f9f8a2e9515f0a46c6f18c68630e63fc121395cd/torchvision-0.29.1-cp311-cp311-win_amd64.whl", hash = "sha256:3ffbf206311067faa5d8d7c70237d26df7b74012bcaa1bc6782a4eb615394925", size = 1376792, upload-time = "2026-09-30T17:57:10.164Z" },
-    { url = "https://files.pythonhosted.org/packages/f3/f8/855c7b326ed17a8dac4a03e8e6fec33ef6728e4baa00d816cf1227bb6681/torchvision-0.29.1-cp312-cp312-macosx_14_0_arm64.whl", hash = "sha256:3b6eb9d2f8fe9b93d9d37637749df361efeed133d96ddd503184a1b5b12bb27f", size = 1813847, upload-time = "2026-09-30T17:57:01.009Z" },
-    { url = "https://files.pythonhosted.org/packages/a7/bf/d1e40adbd5e54c2ca24d22f0e76f7bc23e8e76b7e3c694d5153a14aa83b8/torchvision-0.29.1-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:6e111c6ead37ba63347548c5bd84e1b6a60b187854a19bc2c87c9a48396888d9", size = 7586198, upload-time = "2026-09-30T17:57:07.559Z" },
-    { url = "https://files.pythonhosted.org/packages/22/6f/78267c9791b5b883421fe4dbba6041f06b59c01d43dbe0f57b4497a74f59/torchvision-0.29.1-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:6c717bd68dddaebbd9525377a17a84e38a291a33a218f59fdb76e8bb41e61c99", size = 7430669, upload-time = "2026-09-30T17:57:11.471Z" },
-    { url = "https://files.pythonhosted.org/packages/fa/67/c8cbf53a525ac2fba5d68e36c61636fa08297001a008b151f06c2c0c564a/torchvision-0.29.1-cp312-cp312-win_amd64.whl", hash = "sha256:551c567fd39581570bf553c8df58895d567258b9997760179719f205ec5cd859", size = 1376794, upload-time = "2026-09-30T17:57:09.109Z" },
-    { url = "https://files.pythonhosted.org/packages/8b/85/33819e5ed0caf494a5c0caa6c72bcd9d5bd22c68480d636288832d9d5f55/torchvision-0.29.1-cp313-cp313-macosx_14_0_arm64.whl", hash = "sha256:b0b3de76f2ee5678b7950ba9971cf72d9c5887cd7993db61788552f371686fed", size = 1813847, upload-time = "2026-09-30T17:57:17.586Z" },
-    { url = "https://files.pythonhosted.org/packages/35/6f/81b815c3b1e0c8b75ea1d7788165bc20efb65ddb56b4ad252f233955ae86/torchvision-0.29.1-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:6231a8913a87b2943ad8779c4315992d1fce833901ddd28316382d3b003628c5", size = 7523135, upload-time = "2026-09-30T17:57:29.398Z" },
-    { url = "https://files.pythonhosted.org/packages/f6/b5/915c431a48d7f91cc31bf825aee98e663440386758131668da9b9862aafd/torchvision-0.29.1-cp313-cp313-manylinux_2_28_x86_64.whl", hash = "sha256:c1b7f92604791dd0daa566f6fcc1eea0801753a34430c3ebdf79cfab2d96904c", size = 7430677, upload-time = "2026-09-30T17:57:15.949Z" },
-    { url = "https://files.pythonhosted.org/packages/6f/d7/08452a8497aab125557b7698886990eb1ab3d3a923dedcd88f309a727fe5/torchvision-0.29.1-cp313-cp313-win_amd64.whl", hash = "sha256:41338cd71864419de9ae1e1b0058f6b8645f0548370c4750c7694ffa9bff611c", size = 1376795, upload-time = "2026-09-30T17:57:12.792Z" },
-    { url = "https://files.pythonhosted.org/packages/49/d3/41d167245bc87808eacb730042142649ac22a565200b1ce843462e954f37/torchvision-0.29.1-cp314-cp314-macosx_14_0_arm64.whl", hash = "sha256:c33cbd596afa13c24de752ead437eb5da48285efd6dc2a06543948821bfde57a", size = 1813852, upload-time = "2026-09-30T17:57:21.646Z" },
-    { url = "https://files.pythonhosted.org/packages/40/3d/97040cf68d06efd9e5f3b10d57b22b71453444d750226861119c05405250/torchvision-0.29.1-cp314-cp314-manylinux_2_28_aarch64.whl", hash = "sha256:ad1e39d2b249d5c814a08f4846e927bac1dfa37c21e4c98a6b6a3cfa2032f5ab", size = 7523213, upload-time = "2026-09-30T17:57:26.879Z" },
-    { url = "https://files.pythonhosted.org/packages/5f/80/4bd680ea6cc992f39d92f952daf6bf26579d3ee02b0bd050c8b771f53c4a/torchvision-0.29.1-cp314-cp314-manylinux_2_28_x86_64.whl", hash = "sha256:7e525b2fb6ba6575223e7e3b64bb4c3992124f3f4083c3097127bbce5098c237", size = 7430768, upload-time = "2026-09-30T17:57:19.121Z" },
-    { url = "https://files.pythonhosted.org/packages/11/da/72cd625999fcbbee92fd708901bce7802fb3ced3700d684a2ba511d767ad/torchvision-0.29.1-cp314-cp314-win_amd64.whl", hash = "sha256:63790be6f7b4f769d151b9282d7aba372a67d8b3412323157a9cc865d3c39866", size = 1376798, upload-time = "2026-09-30T17:57:20.566Z" },
-    { url = "https://files.pythonhosted.org/packages/f7/f8/5133682a7e5e7e052f7fd9e5457a61364601096708b7c1d37462653d1d7b/torchvision-0.29.1-cp314-cp314t-macosx_14_0_arm64.whl", hash = "sha256:8b26ff2c61cd1da60d74cf704cae6007bc38902a60d4a7068fe327db1cb45c62", size = 1813854, upload-time = "2026-09-30T17:57:28.127Z" },
-    { url = "https://files.pythonhosted.org/packages/e8/2b/65380232410da678c5280c7a423d6d49b2ea9d062c01d9905a3a2cc8beb0/torchvision-0.29.1-cp314-cp314t-manylinux_2_28_aarch64.whl", hash = "sha256:22d992ada5a3717fd2f3e08b1f41ed984f3a7f498fd92f32618c26649592c700", size = 7523190, upload-time = "2026-09-30T17:57:23.141Z" },
-    { url = "https://files.pythonhosted.org/packages/a8/47/c9f97d761b678c09ebfc0daf4bb6093293817dac79487f32996de9afbc19/torchvision-0.29.1-cp314-cp314t-manylinux_2_28_x86_64.whl", hash = "sha256:8ce8d1baa17da6d681ae35128148624287dcf3ea947116ec07520f860828f4ff", size = 7430763, upload-time = "2026-09-30T17:57:30.788Z" },
-    { url = "https://files.pythonhosted.org/packages/12/79/b55b7fe6ec42d992f60dc6db8fb0de6500091224aa6f8078baaf4f717fc2/torchvision-0.29.1-cp314-cp314t-win_amd64.whl", hash = "sha256:97856838132174da848a18b766ace9bd34728123118f888fa2da86b97c6a5370", size = 1376797, upload-time = "2026-09-30T17:57:24.703Z" },
+    { url = "https://files.pythonhosted.org/packages/ea/47/6b32740f7ae0ecf8772297f7e61e842b127b11de5c2c07efd9aeeaed0690/torchvision-0.29.0-cp311-cp311-macosx_14_0_arm64.whl", hash = "sha256:bbe15455b59a6c9d822584fd3faaaac50ee972101d7bb7e2887da456e148a3ea", size = 1813735, upload-time = "2026-09-02T13:46:58.108Z" },
+    { url = "https://files.pythonhosted.org/packages/59/0a/2c5114537cbf4ac374607a41d976911657db9f656bfa42a278470ca8d886/torchvision-0.29.0-cp311-cp311-manylinux_2_28_aarch64.whl", hash = "sha256:dc5717feef9a0b430b052895db71f1d695939575b74344da981120e9f4da7620", size = 7585959, upload-time = "2026-09-02T13:46:59.536Z" },
+    { url = "https://files.pythonhosted.org/packages/a6/2d/a656bfa09b98d01d4baf30114a5befca1de2f7a16133d94aae01d7cd6942/torchvision-0.29.0-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:85fa54bec1f7d9227b5e4e201ed4bac92247ee10fb19148d92f9836e3e91d5c3", size = 7430717, upload-time = "2026-09-02T13:47:01.281Z" },
+    { url = "https://files.pythonhosted.org/packages/78/26/dc21cec3eace48d944258a437e293093c69ddb56684e9dd1b5016f7e2154/torchvision-0.29.0-cp311-cp311-win_amd64.whl", hash = "sha256:a292ca7044236a2702ec3d4664de135e01fc9fb3ae9422db3fecc819546e831c", size = 1376792, upload-time = "2026-09-02T13:47:02.645Z" },
+    { url = "https://files.pythonhosted.org/packages/a7/d2/9daad500db2ab880eca0f0a569afd73e1afdd49f22c94560c85546dd87c2/torchvision-0.29.0-cp312-cp312-macosx_14_0_arm64.whl", hash = "sha256:994687b818cac0e6d34cb407a41458e2c3262cb7db927465841c9522ba7ebb92", size = 1813740, upload-time = "2026-09-02T13:47:03.933Z" },
+    { url = "https://files.pythonhosted.org/packages/41/14/702cd035fab1b8dfe944d06827cc4628c3b18e5d7ddaa676bf72c9be1c2c/torchvision-0.29.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:b7a736eaa6b2e22476c95ceb62986d195f3e600cdd7d196d7329aa2dfc951994", size = 7586112, upload-time = "2026-09-02T13:47:05.708Z" },
+    { url = "https://files.pythonhosted.org/packages/27/d7/3cf1992414fd712af4865ae5f8f5758d9003c1ed82624908d54f7afb4342/torchvision-0.29.0-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:0e631a2f8b24732672d35224d2574ff89a78d56bef5364ef6094a625fa5f1771", size = 7430773, upload-time = "2026-09-02T13:47:07.178Z" },
+    { url = "https://files.pythonhosted.org/packages/ef/a8/59152b945c09840f582c40e38aa4128777625af7f2883ce2d77133f96a46/torchvision-0.29.0-cp312-cp312-win_amd64.whl", hash = "sha256:0e3b99c62f7f095153887330c2c60c9ebc2da84dfbe08eea564a41ec361629cf", size = 1376791, upload-time = "2026-09-02T13:47:11.283Z" },
+    { url = "https://files.pythonhosted.org/packages/81/56/4e122b6b59269cb2e6a8f7ef969cff7b1eca1499c48784805ad156d3720b/torchvision-0.29.0-cp313-cp313-macosx_14_0_arm64.whl", hash = "sha256:28a3964a9e6db34354d4ca440d2c2038deeef24e7219e8d6f49d9d174f44830c", size = 1813739, upload-time = "2026-09-02T13:47:08.63Z" },
+    { url = "https://files.pythonhosted.org/packages/d7/da/1418b42ed642521262d2b276ffb698772f06827202dca9065a66824f69bf/torchvision-0.29.0-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:83db0299170502b038640444214c99d7b54bad72db447f0554deb8d2c4f02f94", size = 7523336, upload-time = "2026-09-02T13:47:09.769Z" },
+    { url = "https://files.pythonhosted.org/packages/34/78/afa8f85e1f3cb276202ad3af9e36765feee1f0c5ec2942d8522b321e5afc/torchvision-0.29.0-cp313-cp313-manylinux_2_28_x86_64.whl", hash = "sha256:942a3b3fb4e981e1abb7846679ee3882dfc733533a30b68df0dadf6c06f238a9", size = 7430683, upload-time = "2026-09-02T13:47:15.141Z" },
+    { url = "https://files.pythonhosted.org/packages/c0/1e/72fa361d60e46b4f003ebdc68508467f46d4ef1011650a80258b40d7cf46/torchvision-0.29.0-cp313-cp313-win_amd64.whl", hash = "sha256:ebf54f6744556ebd8d7b5f9b6515e2060e5d3156723970dc257bf093f63b2170", size = 1376791, upload-time = "2026-09-02T13:47:12.471Z" },
+    { url = "https://files.pythonhosted.org/packages/af/6a/ccdf22f6ee57e862aed41ab70e735f6302b8330bf304d8125f60d84413ba/torchvision-0.29.0-cp314-cp314-macosx_14_0_arm64.whl", hash = "sha256:01a029fa1b2eacac27e1e4f9e0dba24d112bcbd523261b294e4b4a1c7f8330bc", size = 1813734, upload-time = "2026-09-02T13:47:16.706Z" },
+    { url = "https://files.pythonhosted.org/packages/3a/7e/3cffb013454af4c126a40e97cff7ac91dff692b749bcf80754ae97ada225/torchvision-0.29.0-cp314-cp314-manylinux_2_28_aarch64.whl", hash = "sha256:f9e9627d5036cac8e6de76aeb2f1acc67841ff5ff4b63c4cf78ff954efeb073e", size = 7523354, upload-time = "2026-09-02T13:47:13.833Z" },
+    { url = "https://files.pythonhosted.org/packages/97/90/ae1d76e76c5d97b70539cd38df309777d66020d33b346301e79a7a8c132a/torchvision-0.29.0-cp314-cp314-manylinux_2_28_x86_64.whl", hash = "sha256:e8fdf234d76dca6fc47bc5f4af86ecf1ef57fab6285a7b21681bdcbb494e4c1b", size = 7430722, upload-time = "2026-09-02T13:47:21.359Z" },
+    { url = "https://files.pythonhosted.org/packages/ac/dd/f5571d0c2aedc3d363f9b818de8fbb810a0d2b2ab0293de6003f4291ce15/torchvision-0.29.0-cp314-cp314-win_amd64.whl", hash = "sha256:bb74d08d65785b51c61d4d4ec167bfa50a5ea644b57555a33ba2f4435b0d05dd", size = 1376792, upload-time = "2026-09-02T13:47:18.279Z" },
+    { url = "https://files.pythonhosted.org/packages/7f/f0/bc564a8ed409db4d7ce72215a676c3cbda9559779a53e8ecc477ad11d2c5/torchvision-0.29.0-cp314-cp314t-macosx_14_0_arm64.whl", hash = "sha256:80789f9b50f5277302e7020c8128344e0269b12f6e3b5855034e56bb7081b874", size = 1813737, upload-time = "2026-09-02T13:47:22.801Z" },
+    { url = "https://files.pythonhosted.org/packages/80/55/b39dba8e3d574428e7f00f212a3ee5a2c2d0ab5a25a95338a7c724a87850/torchvision-0.29.0-cp314-cp314t-manylinux_2_28_aarch64.whl", hash = "sha256:9b99a7385da8d706f2dc14cacffb8cbf653d48fc37013a38c41a36659acc3731", size = 7523376, upload-time = "2026-09-02T13:47:19.631Z" },
+    { url = "https://files.pythonhosted.org/packages/84/b3/67692c3785702c24d6c9c95026a558791366f2dc48823aec2321f23a0858/torchvision-0.29.0-cp314-cp314t-manylinux_2_28_x86_64.whl", hash = "sha256:2428a13706a354ee3901fd63e3f1ef8c2a59f6e20d24cce13210b4e61be08f7a", size = 7430679, upload-time = "2026-09-02T13:47:24.3Z" },
+    { url = "https://files.pythonhosted.org/packages/07/8e/0e3682cad7f6b2aba93585bc3b792f8087e4e3fb916c0f6638eacdb3170c/torchvision-0.29.0-cp314-cp314t-win_amd64.whl", hash = "sha256:bd12e152640d1024fca15deaf6f39c53702e12eb398db4b2b038a5a97ab85f7f", size = 1376794, upload-time = "2026-09-02T13:47:25.923Z" },
+]
+
+[[package]]
+name = "torchvision"
+version = "0.29.0+cpu"
+source = { registry = "https://download.pytorch.org/whl/cpu" }
+resolution-markers = [
+    "python_full_version >= '3.12' and sys_platform == 'linux'",
+    "python_full_version < '3.12' and sys_platform == 'linux'",
+]
+dependencies = [
+    { name = "numpy", marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "pillow", marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "torch", version = "2.14.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+]
+wheels = [
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp311-cp311-manylinux_2_28_aarch64.whl", hash = "sha256:8013771465280b282306d4f037e4358551fb232ff621d99b2bc971c4f77a8f7e", upload-time = "2026-09-02T00:27:42Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:c7cc533222df6c81834595e1893200555cbc15183b7a4f5bb924bccda5090d8d", upload-time = "2026-09-02T00:27:42Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp311-cp311-win_amd64.whl", hash = "sha256:1e9b226ec8fec75062093657ebdb2f93c3484630ced9ece5a7aa537e5a02a83f", upload-time = "2026-09-02T00:27:43Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:8ac096fe796dfacbd174be86f7ab3595a39eabc341d2ee2e48557032ec1d57c4", upload-time = "2026-09-02T00:27:43Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:a6bab91c40d469a656d361b8ec60ebdfd86c515ad47b2cd5037d17db30414d75", upload-time = "2026-09-02T00:27:43Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp312-cp312-win_amd64.whl", hash = "sha256:7fa995dff29396950418ced2f21c9bfee8b7b71e9e324a18a4b0489be762dd07", upload-time = "2026-09-02T00:27:44Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:4d5138e00e117cfd5b7fe70af57d65d00abff2ce9f8581dc97805ecc62a510f5", upload-time = "2026-09-02T00:27:44Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp313-cp313-manylinux_2_28_x86_64.whl", hash = "sha256:6ff3b816ec955f3ef9f32d1e698e1856549e2e03637c358ee067c6f5f17f74fa", upload-time = "2026-09-02T00:27:44Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp313-cp313-win_amd64.whl", hash = "sha256:950ee3137e94cec83bcacab204204c0dbddddd24f239094f697c18c0f50368fa", upload-time = "2026-09-02T00:27:45Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp314-cp314-manylinux_2_28_aarch64.whl", hash = "sha256:9173ee20608718663483b8e29f3e07aaa4ebfa6cc8cb7939405acc5536a9b252", upload-time = "2026-09-02T00:27:45Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp314-cp314-manylinux_2_28_x86_64.whl", hash = "sha256:dd735995faf5d19ebf7dc729138bc39764044f62c31edc687036757e744005b7", upload-time = "2026-09-02T00:27:45Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp314-cp314-win_amd64.whl", hash = "sha256:a4942ffe0d443b3d0a3f6bf6f597081f1ab7fde57a0789f158818f677442939f", upload-time = "2026-09-02T00:27:46Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp314-cp314t-manylinux_2_28_aarch64.whl", hash = "sha256:d25afdfb2893d7309c35334a923898fb13c11c2c4165d497d107a2694398a0ce", upload-time = "2026-09-02T00:27:46Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp314-cp314t-manylinux_2_28_x86_64.whl", hash = "sha256:0941ad2ce731feb062300a7faf9bbde484896f9500f19523319d110ecaed2bc8", upload-time = "2026-09-02T00:27:46Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp314-cp314t-win_amd64.whl", hash = "sha256:9ea10d2cc017bccb2d67f88d6fd8f2689ce740ca5ba1ff177aa4f32f9e9bf461", upload-time = "2026-09-02T00:27:46Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp315-cp315-manylinux_2_28_aarch64.whl", hash = "sha256:8082ba501f55bc2dac6f6c496c6df6407a0afa5955db4fb83e156a20bb2feeec", upload-time = "2026-09-02T00:27:47Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp315-cp315-manylinux_2_28_x86_64.whl", hash = "sha256:2060938f90e78d37a6a9ec6b5254a24607e072e2fc4f0d2e90f6f092578b6907", upload-time = "2026-09-02T00:27:47Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp315-cp315-win_amd64.whl", hash = "sha256:2560c0d9f4f50606c86bc5d755c8f326d90da559882c9667cd8ffb5d2301bef9", upload-time = "2026-09-02T00:27:47Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp315-cp315t-manylinux_2_28_aarch64.whl", hash = "sha256:3e9559f69900da98ab1387fa763eeb0d210c78b35da969c61b96816c77a27b79", upload-time = "2026-09-02T00:27:48Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp315-cp315t-manylinux_2_28_x86_64.whl", hash = "sha256:1a0cb923542cb98eeb084a5b1b8d496d5f3f025f17b829fb2bd2524185598d9e", upload-time = "2026-09-02T00:27:48Z" },
+    { url = "https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.0%2Bcpu-cp315-cp315t-win_amd64.whl", hash = "sha256:eb44d9535d16ff11572960b241917f1adbcd133531d838b7bc4a32316d27efee", upload-time = "2026-09-02T00:27:48Z" },
 ]
 
 [[package]]
@@ -2710,9 +2685,10 @@ dependencies = [
     { name = "psutil" },
     { name = "pyyaml" },
     { name = "requests" },
-    { name = "torch", version = "2.14.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform == 'darwin' or sys_platform == 'win32' or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current') or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "torch", version = "2.14.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux' or (sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "torchvision" },
+    { name = "torch", version = "2.14.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "torch", version = "2.14.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "torchvision", version = "0.29.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "torchvision", version = "0.29.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
     { name = "ultralytics-platform" },
     { name = "ultralytics-thop" },
 ]
@@ -2739,8 +2715,8 @@ version = "2.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "numpy" },
-    { name = "torch", version = "2.14.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform == 'darwin' or sys_platform == 'win32' or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-current') or (sys_platform != 'linux' and extra == 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
-    { name = "torch", version = "2.14.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux' or (sys_platform != 'darwin' and sys_platform != 'win32' and extra != 'group-25-albumentations-seed-check-current' and extra != 'group-25-albumentations-seed-check-legacy') or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "torch", version = "2.14.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
+    { name = "torch", version = "2.14.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux' or (extra == 'group-25-albumentations-seed-check-current' and extra == 'group-25-albumentations-seed-check-legacy')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/b1/bf/b7b993e3b2411fc9894a26b8679931ca07c0d013f05bb620c63ae1911c5f/ultralytics_thop-2.2.2.tar.gz", hash = "sha256:149a89c26c2be35b709fa25951f4644dea13d63017025569a193159a5908e3ed", size = 39543, upload-time = "2026-10-01T09:34:58.406Z" }
 wheels = [

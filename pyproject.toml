@@ -7,7 +7,7 @@ dependencies = []
 [dependency-groups]
 legacy = ["albumentations==2.0.8", "numpy==2.4.6", "opencv-python==5.0.0.93", "torch==2.14.0", "pytest>=9.0.2"]
 current = ["albumentationsx==2.5.0", "numpy==2.4.6", "opencv-python==5.0.0.93", "torch==2.14.0", "pytest>=9.0.2"]
-integration = ["supervision==0.30.8", "rfdetr==1.11.2", "ultralytics==8.4.174"]
+integration = ["supervision==0.30.8", "rfdetr==1.11.2", "ultralytics==8.4.174", "torchvision==0.29.0"]
 
 [tool.uv]
 conflicts = [[{group = "legacy"}, {group = "current"}]]

@@ -40,8 +40,10 @@ def check_integrations():
 
     target = {"boxes": torch.tensor(boxes), "labels": torch.tensor(labels)}
     pixel = AlbumentationsWrapper(A.InvertImg(p=1))
-    output, _ = pixel(Image.fromarray(image), target)
+    output, pixel_target = pixel(Image.fromarray(image), target)
     np.testing.assert_array_equal(np.asarray(output), 255 - image)
+    np.testing.assert_array_equal(pixel_target["boxes"].numpy(), boxes)
+    np.testing.assert_array_equal(pixel_target["labels"].numpy(), labels)
     report["rfdetr_pixel"] = "passed"
     try:
         spatial = AlbumentationsWrapper(A.HorizontalFlip(p=1))

@@ -21,3 +21,5 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libgl1
       - run: uv run --exact --frozen --only-group ${{ matrix.version }} --only-group integration python reproduce.py
       - run: uv run --exact --frozen --only-group ${{ matrix.version }} --only-group integration python -m pytest -q
+      - if: matrix.version == 'current'
+        run: uv run --exact --frozen --only-group current --only-group integration --only-group kornia python rfdetr_kornia_boxes.py

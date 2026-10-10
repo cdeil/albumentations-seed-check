@@ -1,0 +1,77 @@
+{
+  "versions": {
+    "rfdetr": "1.11.2",
+    "kornia": "0.8.3",
+    "torch": "2.14.0"
+  },
+  "cases": [
+    {
+      "segmentation": false,
+      "expected_xyxy": [
+        [
+          4.0,
+          1.0,
+          8.0,
+          4.0
+        ],
+        [
+          0.0,
+          0.0,
+          10.0,
+          6.0
+        ]
+      ],
+      "actual_xyxy": [
+        [
+          3.0,
+          0.9999999403953552,
+          7.0,
+          3.999999761581421
+        ],
+        [
+          0.0,
+          0.0,
+          9.0,
+          6.0
+        ]
+      ],
+      "max_box_error_pixels": 1.0,
+      "full_frame_area": 54.0,
+      "pixels_and_masks_correct": true
+    },
+    {
+      "segmentation": true,
+      "expected_xyxy": [
+        [
+          4.0,
+          1.0,
+          8.0,
+          4.0
+        ],
+        [
+          0.0,
+          0.0,
+          10.0,
+          6.0
+        ]
+      ],
+      "actual_xyxy": [
+        [
+          3.0,
+          0.9999999403953552,
+          7.0,
+          3.999999761581421
+        ],
+        [
+          0.0,
+          0.0,
+          9.0,
+          6.0
+        ]
+      ],
+      "max_box_error_pixels": 1.0,
+      "full_frame_area": 54.0,
+      "pixels_and_masks_correct": true
+    }
+  ]
+}

@@ -122,3 +122,26 @@ licenses. Legacy Albumentations is MIT. X 2.5.0 is AGPL-3.0-only or commercially
 licensed. See the [official FAQ](https://albumentations.ai/docs/faq/) for the
 separate treatment of private training, distributed software and ordinary model
 outputs. No upstream implementation is copied here.
+
+## RF-DETR Kornia continuous box edges
+
+`rfdetr_kornia_boxes.py` exercises the released trainer's real batch transfer
+hook, without constructing a model or downloading weights. On a 10×6 synthetic
+image, forced horizontal flips move pixels and masks correctly while shifting
+continuous COCO box edges by one pixel. The full-frame box loses a column when
+clipped: area 60 becomes 54. This is the RF-DETR adapter's coordinate convention,
+not an AlbumentationsX defect.
+
+```bash
+UV_PROJECT_ENVIRONMENT="$HOME/data/albumentations-seed-check/current" \
+  uv run --exact --frozen --only-group current --only-group integration \
+  --only-group kornia python rfdetr_kornia_boxes.py
+```
+
+Both detection and segmentation cases assert the observed released defect.
+Against a patched RF-DETR checkout, use its training environment and pass
+`--expect fixed`; correct boxes have less than 1e-5 pixel error and retain area60.
+The proposed correction applies the existing keypoint adapter's half-pixel
+coordinate bridge to boxes for all model types. No training-quality claim is
+made. The NumPy Albumentations path and this tensor Kornia path are separate
+backends; installing X alone does not change this result.

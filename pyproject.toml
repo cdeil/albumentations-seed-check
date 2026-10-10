@@ -1,0 +1,26 @@
+[project]
+name = "albumentations-seed-check"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+legacy = ["albumentations==2.0.8", "numpy==2.4.6", "opencv-python==5.0.0.93", "torch==2.14.0", "pytest>=9.0.2"]
+current = ["albumentationsx==2.5.0", "numpy==2.4.6", "opencv-python==5.0.0.93", "torch==2.14.0", "pytest>=9.0.2"]
+integration = ["supervision==0.30.8", "rfdetr==1.11.2", "ultralytics==8.4.174"]
+
+[tool.uv]
+conflicts = [[{group = "legacy"}, {group = "current"}]]
+exclude-dependencies = ["opencv-python-headless"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = [{index = "pytorch-cpu", marker = "sys_platform == 'linux'"}]
+torchvision = [{index = "pytorch-cpu", marker = "sys_platform == 'linux'"}]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

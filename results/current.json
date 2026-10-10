@@ -1,0 +1,68 @@
+{
+  "distributions": {
+    "albumentationsx": "2.5.0",
+    "albucore": "0.2.21",
+    "torch": "2.14.0",
+    "numpy": "2.4.6",
+    "opencv-python": "5.0.0.93"
+  },
+  "import_version": "2.5.0",
+  "results": [
+    {
+      "seed": 0,
+      "calls": 400,
+      "counts": {
+        "neither": 88,
+        "horizontal_only": 96,
+        "vertical_only": 117,
+        "both": 99
+      },
+      "repeatable": true,
+      "reseed_repeatable": true,
+      "sequence_sha256": "b4645ecec9c2a57e8a68c8ce5bdc8995f1bb380cd1c51e3148db25262428da92",
+      "phi_correlation": -0.06322233293706467
+    },
+    {
+      "seed": 1,
+      "calls": 400,
+      "counts": {
+        "neither": 106,
+        "horizontal_only": 100,
+        "vertical_only": 102,
+        "both": 92
+      },
+      "repeatable": true,
+      "reseed_repeatable": true,
+      "sequence_sha256": "2e1e0e002956b819e5bcf3e7e33116e1a9dc76b5adf00ef505da66e71f72b1fb",
+      "phi_correlation": -0.011214018210481264
+    },
+    {
+      "seed": 42,
+      "calls": 400,
+      "counts": {
+        "neither": 107,
+        "horizontal_only": 100,
+        "vertical_only": 95,
+        "both": 98
+      },
+      "repeatable": true,
+      "reseed_repeatable": true,
+      "sequence_sha256": "f39e18fb59e7b969182e47b77fd889d31408c9aedf23e61a3fb636a0dd6311de",
+      "phi_correlation": 0.024666345358680394
+    },
+    {
+      "seed": 123,
+      "calls": 400,
+      "counts": {
+        "neither": 96,
+        "horizontal_only": 98,
+        "vertical_only": 96,
+        "both": 110
+      },
+      "repeatable": true,
+      "reseed_repeatable": true,
+      "sequence_sha256": "6bcdf02ad596b18df4f312b1d9a31edbfafc7c8c9886896e52c21100feb1d4f7",
+      "phi_correlation": 0.028836046826952073
+    }
+  ]
+}

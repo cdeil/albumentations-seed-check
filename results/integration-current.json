@@ -1,0 +1,8 @@
+{
+  "supervision_boxes": "passed",
+  "rfdetr_pixel": "passed",
+  "rfdetr_spatial": "incompatible: BboxParams.__init__() got an unexpected keyword argument 'format'",
+  "ultralytics_default": "passed",
+  "ultralytics_pixel": "passed",
+  "ultralytics_spatial": "incompatible: adapter caught initialization error and disabled augmentation"
+}

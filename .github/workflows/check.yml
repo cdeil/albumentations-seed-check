@@ -1,0 +1,23 @@
+name: Synthetic checks
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        version: [legacy, current]
+    env:
+      ALBUMENTATIONS_NO_TELEMETRY: "1"
+      NO_ALBUMENTATIONS_UPDATE: "1"
+      OMP_NUM_THREADS: "1"
+      UV_PROJECT_ENVIRONMENT: ${{ runner.temp }}/seed-check-${{ matrix.version }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v8.2.0
+        with:
+          python-version: "3.14"
+          enable-cache: true
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libgl1
+      - run: uv run --exact --frozen --only-group ${{ matrix.version }} --only-group integration python reproduce.py
+      - run: uv run --exact --frozen --only-group ${{ matrix.version }} --only-group integration python -m pytest -q

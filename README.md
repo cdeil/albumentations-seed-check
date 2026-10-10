@@ -47,7 +47,7 @@ Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and use
 Python 3.14 for the recorded environment. `uv.lock` pins dependencies. Both runs
 use NumPy 2.4.6, OpenCV 5.0.0.93 and PyTorch 2.14.0; Albucore necessarily differs.
 PyTorch is required by the X import graph even though the probe uses NumPy.
-The Linux source selects CPU Torch wheels.
+The Linux sources select matching CPU Torch and Torchvision wheels.
 
 **Use separate environments.** Both distributions own the `albumentations`
 module; co-installing them or switching an existing overlapping installation
@@ -112,6 +112,8 @@ with integration installed, **5 tests pass per group**. Recorded on Python
 3.14.6 / macOS 27.0.1 arm64. No current-source patch or upstream PR is needed for
 the original correlation case. Multi-worker training and task accuracy are
 outside this reproducer's scope.
+The same legacy/current matrix also
+[passes on Linux CI](https://github.com/cdeil/albumentations-seed-check/actions/runs/38037903874).
 
 ## Licenses
 

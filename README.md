@@ -145,3 +145,9 @@ The proposed correction applies the existing keypoint adapter's half-pixel
 coordinate bridge to boxes for all model types. No training-quality claim is
 made. The NumPy Albumentations path and this tensor Kornia path are separate
 backends; installing X alone does not change this result.
+
+Upstream fix: [RF-DETR PR #1621](https://github.com/roboflow/rf-detr/pull/1621).
+The patched batch hook preserves detection/segmentation boxes and full-frame
+area; regression coverage includes fractional/subpixel boxes, empty targets,
+padding, vertical flips and affine scaling. This repo's pinned released package
+still demonstrates the defect until the upstream fix is released.
